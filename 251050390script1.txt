@@ -1,13 +1,19 @@
+-- Yanxiu's script1
+
+-- build the database
 SHOW DATABASES;
 DROP DATABASE IF EXISTS 251050390assign2db;
 CREATE DATABASE 251050390assign2db;
 USE 251050390assign2db;
 
+-- to make sure t.a. has access my database
 GRANT USAGE ON *.* TO 'ta'@'localhost';
 DROP USER 'ta'@'localhost';
 CREATE USER 'ta'@'localhost' IDENTIFIED BY 'cs3319';
 GRANT ALL PRIVILEGES ON 251050390assign2db.* TO 'ta'@'localhost';
 FLUSH PRIVILEGES;
+
+-- create the product, agent, customer and purchases table
 SHOW TABLES;
 
 CREATE TABLE product (productid CHAR(2) NOT NULL, description VARCHAR(20), costperterm FLOAT, quantity INT, PRIMARY KEY (productid)); 
@@ -18,5 +24,6 @@ CREATE TABLE customer (customerid CHAR(2) NOT NULL, firstname VARCHAR(30), lastn
 
 CREATE TABLE purchases (productid CHAR(2) NOT NULL, customerid CHAR(2) NOT NULL, purchasequantity INT, FOREIGN KEY (productid) REFERENCES product(productid), FOREIGN KEY (customerid) REFERENCES customer(customerid), PRIMARY KEY (productid, customerid));
 
+-- list the tables
 SHOW TABLES;
 
