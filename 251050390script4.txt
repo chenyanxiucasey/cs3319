@@ -1,0 +1,23 @@
+-- connect to the database
+SHOW DATABASES;
+USE 251050390assign2db;
+
+-- display the data
+SELECT * FROM product;
+SELECT * FROM agent;
+SELECT * FROM customer;
+SELECT * FROM purchases;
+
+CREATE VIEW customerinfo as SELECT firstname, lastname, description, purchasequantity, costperterm, purchasequantity * costperterm AS 'totalcost' FROM customer, product, purchases WHERE customer.customerid = purchases.customerid AND purchases.productid = product.productid;
+
+SELECT * FROM customerinfo;
+
+SELECT * FROM customerinfo WHERE totalcost > 100;
+
+DELETE FROM product WHERE description = 'Shoes';
+
+SELECT * FROM product;
+
+DELETE FROM agent WHERE city = 'Springfield';
+-- the row for agent who are from Springfield are not deleted because it is a foreign key in customer and purchases table
+
