@@ -1,0 +1,20 @@
+Warning: Using a password on the command line interface can be insecure.
+ERROR 1062 (23000) at line 9: Duplicate entry '66' for key 'PRIMARY'
+--------------
+SHOW DATABASES
+--------------
+
+Database
+information_schema
+251050390assign2db
+filpped3
+mysql
+performance_schema
+--------------
+LOAD DATA LOCAL INFILE 'productdata.txt' INTO TABLE product FIELDS TERMINATED BY ','
+--------------
+
+--------------
+INSERT INTO product VALUES('66', 'Elbow pads', '14.25', '120')
+--------------
+
